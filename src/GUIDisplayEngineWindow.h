@@ -1,3 +1,6 @@
+// Copyright Paul Dardeau, SwampBits LLC 2014
+// BSD License
+
 #ifndef TATAILLE_GUIDISPLAYENGINEWINDOW_H
 #define TATAILLE_GUIDISPLAYENGINEWINDOW_H
 
@@ -31,6 +34,12 @@ namespace tataille
       std::unordered_map<std::string, std::vector<ControlId>> m_mapGroupControls;
       std::unordered_map<int, DisplayEngineWidget*> m_mapIntToWidgets;
       
+      std::unordered_map<int, CheckBoxHandler*> m_mapCheckBoxHandlers;
+      std::unordered_map<int, ComboBoxHandler*> m_mapComboBoxHandlers;
+      std::unordered_map<int, ListBoxHandler*> m_mapListBoxHandlers;
+      std::unordered_map<int, ListViewHandler*> m_mapListViewHandlers;
+      std::unordered_map<int, PushButtonHandler*> m_mapPushButtonHandlers;
+      std::unordered_map<int, SliderHandler*> m_mapSliderHandlers;
       std::unordered_map<int, TabViewHandler*> m_mapTabViewHandlers;
       
    protected:
@@ -45,7 +54,7 @@ namespace tataille
       bool showWindow();
       virtual bool setVisible(bool isVisible) = 0;
       virtual bool setTitle(const std::string& windowTitle) = 0;
-      bool closeWindow();
+      virtual bool closeWindow() = 0;
     
       virtual bool createCheckBox(ControlInfo* ci) = 0;
       virtual bool createComboBox(ControlInfo* ci) = 0;
@@ -90,12 +99,12 @@ namespace tataille
       bool setRect(const Rect& rect, const ControlId& cid);
     
       // ListView
-      bool addRow(const std::string& rowText, const ControlId& cid);
-      bool removeRow(int rowIndex, const ControlId& cid);
-      bool removeAllRows(const ControlId& cid);
+      virtual bool addRow(const std::string& rowText, const ControlId& cid) = 0;
+      virtual bool removeRow(int rowIndex, const ControlId& cid) = 0;
+      virtual bool removeAllRows(const ControlId& cid) = 0;
 
       // StaticText
-      bool setStaticText(const std::string& text, const ControlId& cid);
+      virtual bool setStaticText(const std::string& text, const ControlId& cid) = 0;
     
     
       bool setCheckBoxHandler(CheckBoxHandler* handler, const ControlId& cid);

@@ -1,3 +1,6 @@
+// Copyright Paul Dardeau, SwampBits LLC 2014
+// BSD License
+
 #ifndef TATAILLE_CHECKBOXHANDLER_H
 #define TATAILLE_CHECKBOXHANDLER_H
 

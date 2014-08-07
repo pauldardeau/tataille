@@ -1,3 +1,6 @@
+// Copyright Paul Dardeau, SwampBits LLC 2014
+// BSD License
+
 #include "GUIDisplayEngineWindow.h"
 
 using namespace tataille;
@@ -6,7 +9,7 @@ using namespace tataille;
 
 bool GUIDisplayEngineWindow::registerControl(ControlInfo* ci, DisplayEngineWidget* widget)
 {
-   
+   return false;
 }
 
 //******************************************************************************
@@ -41,16 +44,15 @@ bool GUIDisplayEngineWindow::showWindow()
 
 //******************************************************************************
 
-bool GUIDisplayEngineWindow::closeWindow()
-{
-   
-}
-
-//******************************************************************************
-
 bool GUIDisplayEngineWindow::setFocus(const ControlId& cid)
 {
+   DisplayEngineWidget* control = controlFromCid(cid);
+   if (control != nullptr) {
+      control->setFocus();
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
@@ -85,6 +87,13 @@ bool GUIDisplayEngineWindow::showGroup(const std::string& groupName)
 
 bool GUIDisplayEngineWindow::setVisible(bool isVisible, const ControlId& cid)
 {
+   DisplayEngineWidget* control = controlFromCid(cid);
+   if (control != nullptr) {
+      control->setVisible(isVisible);
+      return true;
+   }
+   
+   return false;
 }
 
 //******************************************************************************
@@ -136,7 +145,13 @@ bool GUIDisplayEngineWindow::disableGroup(const std::string& groupName)
 
 bool GUIDisplayEngineWindow::setEnabled(bool isEnabled, const ControlId& cid)
 {
+   DisplayEngineWidget* control = controlFromCid(cid);
+   if (control != nullptr) {
+      control->setEnabled(isEnabled);
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
@@ -160,91 +175,111 @@ bool GUIDisplayEngineWindow::setEnabled(bool isEnabled, const std::string& group
 
 bool GUIDisplayEngineWindow::setSize(const Size& controlSize, const ControlId& cid)
 {
+   DisplayEngineWidget* control = controlFromCid(cid);
+   if (control != nullptr) {
+      control->setSize(controlSize);
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngineWindow::setPos(const Point& point, const ControlId& cid)
 {
+   DisplayEngineWidget* control = controlFromCid(cid);
+   if (control != nullptr) {
+      control->setPos(point);
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngineWindow::setRect(const Rect& rect, const ControlId& cid)
 {
+   DisplayEngineWidget* control = controlFromCid(cid);
+   if (control != nullptr) {
+      control->setRect(rect);
+      return true;
+   }
    
-}
-
-//******************************************************************************
-
-bool GUIDisplayEngineWindow::addRow(const std::string& rowText, const ControlId& cid)
-{
-   
-}
-
-//******************************************************************************
-
-bool GUIDisplayEngineWindow::removeRow(int rowIndex, const ControlId& cid)
-{
-   
-}
-
-//******************************************************************************
-
-bool GUIDisplayEngineWindow::removeAllRows(const ControlId& cid)
-{
-   
-}
-
-//******************************************************************************
-
-bool GUIDisplayEngineWindow::setStaticText(const std::string& text, const ControlId& cid)
-{
-   
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngineWindow::setCheckBoxHandler(CheckBoxHandler* handler, const ControlId& cid)
 {
+   if (cid.isValid() && (handler != nullptr)) {
+      m_mapCheckBoxHandlers[cid.controlId] = handler;
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngineWindow::setComboBoxHandler(ComboBoxHandler* handler, const ControlId& cid)
 {
+   if (cid.isValid() && (handler != nullptr)) {
+      m_mapComboBoxHandlers[cid.controlId] = handler;
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngineWindow::setListBoxHandler(ListBoxHandler* handler, const ControlId& cid)
 {
+   if (cid.isValid() && (handler != nullptr)) {
+      m_mapListBoxHandlers[cid.controlId] = handler;
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngineWindow::setListViewHandler(ListViewHandler* handler, const ControlId& cid)
 {
+   if (cid.isValid() && (handler != nullptr)) {
+      m_mapListViewHandlers[cid.controlId] = handler;
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngineWindow::setPushButtonHandler(PushButtonHandler* handler, const ControlId& cid)
 {
+   if (cid.isValid() && (handler != nullptr)) {
+      m_mapPushButtonHandlers[cid.controlId] = handler;
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngineWindow::setSliderHandler(SliderHandler* handler, const ControlId& cid)
 {
+   if (cid.isValid() && (handler != nullptr)) {
+      m_mapSliderHandlers[cid.controlId] = handler;
+      return true;
+   }
    
+   return false;
 }
 
 //******************************************************************************
@@ -253,6 +288,7 @@ bool GUIDisplayEngineWindow::setTabViewHandler(TabViewHandler* handler, const Co
 {
    if (cid.isValid() && (handler != nullptr)) {
       m_mapTabViewHandlers[cid.controlId] = handler;
+      return true;
    }
    
    return false;

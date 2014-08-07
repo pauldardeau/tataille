@@ -1,3 +1,6 @@
+// Copyright Paul Dardeau, SwampBits LLC 2014
+// BSD License
+
 #include "GUIDisplayEngine.h"
 #include "GUIDisplayEngineWindow.h"
 #include "ControlInfo.h"
@@ -5,33 +8,38 @@
 
 using namespace tataille;
 
+const std::string GUIDisplayEngine::Name        = "GUIDisplayEngine";
+const std::string GUIDisplayEngine::Technology  = "Standard C++";
+const std::string GUIDisplayEngine::Language    = "C++";
+const std::string GUIDisplayEngine::Version     = "0.1";
+
 //******************************************************************************
 
 const std::string& GUIDisplayEngine::getDisplayEngineName() const {
-   
+   return Name;
 }
 
 //******************************************************************************
 
 const std::string& GUIDisplayEngine::getDisplayEngineTechnology() const {
-   
+   return Technology;
 }
 
 //******************************************************************************
 
 const std::string& GUIDisplayEngine::getDisplayEngineLanguage() const {
-   
+   return Language;
 }
 
 //******************************************************************************
 
 const std::string& GUIDisplayEngine::getDisplayEngineVersion() const {
-   
+   return Version;
 }
 
 //******************************************************************************
 
-GUIDisplayEngineWindow* GUIDisplayEngine::windowFromId(int windowId) {
+tataille::GUIDisplayEngineWindow* GUIDisplayEngine::windowFromId(int windowId) {
    auto it = m_mapIdToWindows.find(windowId);
    if (it != m_mapIdToWindows.end()) {
       return (*it).second;
@@ -55,7 +63,7 @@ GUIDisplayEngineWindow* GUIDisplayEngine::windowFromCi(ControlInfo* ci) {
 //******************************************************************************
 
 bool GUIDisplayEngine::createWindow(int windowId, const Rect& rect) {
-   
+   return false;
 }
 
 //******************************************************************************
@@ -127,211 +135,341 @@ bool GUIDisplayEngine::setVisible(bool isVisible, int windowId) {
 //******************************************************************************
 
 bool GUIDisplayEngine::setTitle(const std::string& windowTitle, int windowId) {
+   GUIDisplayEngineWindow* window = windowFromId(windowId);
+   if (window != nullptr) {
+      return window->setTitle(windowTitle);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::closeWindow(int windowId) {
-   
+   return false;
 }
 
 //******************************************************************************
     
 bool GUIDisplayEngine::createCheckBox(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createCheckBox(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createComboBox(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createComboBox(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createDatePicker(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createDatePicker(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createEntryField(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createEntryField(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createGroupBox(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createGroupBox(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createHtmlBrowser(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createHtmlBrowser(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createImageView(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createImageView(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createLevelIndicator(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createLevelIndicator(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createListBox(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createListBox(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createListView(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createListView(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createPanel(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createPanel(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createPasswordField(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createPasswordField(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createProgressBar(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createProgressBar(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createPushButton(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createPushButton(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createSegmentedControl(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createSegmentedControl(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createSlider(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createSlider(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createStaticText(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createStaticText(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createTabView(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createTabView(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createTextView(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createTextView(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::createTree(ControlInfo* ci) {
+   GUIDisplayEngineWindow* window = windowFromCi(ci);
+   if (window != nullptr) {
+      return window->createTree(ci);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::setFocus(const ControlId& cid) {
+   GUIDisplayEngineWindow* window = windowFromCid(cid);
+   if (window != nullptr) {
+      return window->setFocus(cid);
+   }
    
+   return false;
 }
 
 //******************************************************************************
     
 bool GUIDisplayEngine::hideControl(const ControlId& cid) {
-   
+   return setVisible(false, cid);
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::showControl(const ControlId& cid) {
-   
+   return setVisible(true, cid);
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::hideGroup(const std::string& groupName, int windowId) {
-   
+   return setVisible(false, windowId, groupName);
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::showGroup(const std::string& groupName, int windowId) {
-   
+   return setVisible(true, windowId, groupName);
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::setVisible(bool isVisible, const ControlId& cid) {
+   GUIDisplayEngineWindow* window = windowFromCid(cid);
+   if (window != nullptr) {
+      return window->setVisible(isVisible, cid);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::setVisible(bool isVisible, int windowId, const std::string& groupName) {
+   GUIDisplayEngineWindow* window = windowFromId(windowId);
+   if (window != nullptr) {
+      return window->setVisible(true, groupName);
+   }
    
+   return false;
 }
 
 //******************************************************************************
     
 bool GUIDisplayEngine::enableControl(const ControlId& cid) {
-   
+   return setEnabled(true, cid);
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::disableControl(const ControlId& cid) {
-   
+   return setEnabled(false, cid);
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::enableGroup(const std::string& groupName, int windowId) {
-   
+   return setEnabled(true, windowId, groupName);
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::disableGroup(const std::string& groupName, int windowId) {
-   
+   return setEnabled(false, windowId, groupName);
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::setEnabled(bool isEnabled, const ControlId& cid) {
+   GUIDisplayEngineWindow* window = windowFromCid(cid);
+   if (window != nullptr) {
+      return window->setEnabled(isEnabled, cid);
+   }
    
+   return false;
 }
 
 //******************************************************************************
 
 bool GUIDisplayEngine::setEnabled(bool isEnabled, int windowId, const std::string& groupName) {
+   GUIDisplayEngineWindow* window = windowFromId(windowId);
+   if (window != nullptr) {
+      return window->setEnabled(isEnabled, groupName);
+   }
    
+   return false;
 }
 
 //******************************************************************************

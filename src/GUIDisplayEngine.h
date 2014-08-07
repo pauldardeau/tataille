@@ -1,3 +1,6 @@
+// Copyright Paul Dardeau, SwampBits LLC 2014
+// BSD License
+
 #ifndef TATAILLE_GUIDISPLAYENGINE_H
 #define TATAILLE_GUIDISPLAYENGINE_H
 
@@ -23,6 +26,11 @@ namespace tataille
    class GUIDisplayEngine : public DisplayEngine
    {
    private:
+      static const std::string Name;
+      static const std::string Technology;
+      static const std::string Language;
+      static const std::string Version;
+
       std::unordered_map<int, GUIDisplayEngineWindow*> m_mapIdToWindows;
       
    public:

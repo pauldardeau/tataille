@@ -1,3 +1,6 @@
+// Copyright Paul Dardeau, SwampBits LLC 2014
+// BSD License
+
 #ifndef TATAILLE_DISPLAYENGINEWIDGET_H
 #define TATAILLE_DISPLAYENGINEWIDGET_H
 
@@ -14,9 +17,11 @@ namespace tataille
       virtual ~DisplayEngineWidget() {}
 
       virtual void setVisible(bool isVisible) = 0;
-      virtual bool setSize(const Size& controlSize) = 0;
-      virtual bool setPos(const Point& point) = 0;
-      virtual bool setRect(const Rect& rect) = 0;
+      virtual void setSize(const Size& controlSize) = 0;
+      virtual void setPos(const Point& point) = 0;
+      virtual void setRect(const Rect& rect) = 0;
+      virtual void setFocus() = 0;
+      virtual void setEnabled(bool isEnabled) = 0;
 
    };
 }
