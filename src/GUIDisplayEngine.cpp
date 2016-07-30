@@ -417,7 +417,9 @@ bool GUIDisplayEngine::setVisible(bool isVisible, const ControlId& cid) {
 
 //******************************************************************************
 
-bool GUIDisplayEngine::setVisible(bool isVisible, int windowId, const std::string& groupName) {
+bool GUIDisplayEngine::setVisible(bool isVisible,
+                                  int windowId,
+                                  const std::string& groupName) {
    GUIDisplayEngineWindow* window = windowFromId(windowId);
    if (window != nullptr) {
       return window->setVisible(true, groupName);
@@ -440,13 +442,15 @@ bool GUIDisplayEngine::disableControl(const ControlId& cid) {
 
 //******************************************************************************
 
-bool GUIDisplayEngine::enableGroup(const std::string& groupName, int windowId) {
+bool GUIDisplayEngine::enableGroup(const std::string& groupName,
+                                   int windowId) {
    return setEnabled(true, windowId, groupName);
 }
 
 //******************************************************************************
 
-bool GUIDisplayEngine::disableGroup(const std::string& groupName, int windowId) {
+bool GUIDisplayEngine::disableGroup(const std::string& groupName,
+                                    int windowId) {
    return setEnabled(false, windowId, groupName);
 }
 
@@ -463,7 +467,9 @@ bool GUIDisplayEngine::setEnabled(bool isEnabled, const ControlId& cid) {
 
 //******************************************************************************
 
-bool GUIDisplayEngine::setEnabled(bool isEnabled, int windowId, const std::string& groupName) {
+bool GUIDisplayEngine::setEnabled(bool isEnabled,
+                                  int windowId,
+                                  const std::string& groupName) {
    GUIDisplayEngineWindow* window = windowFromId(windowId);
    if (window != nullptr) {
       return window->setEnabled(isEnabled, groupName);
@@ -507,7 +513,8 @@ bool GUIDisplayEngine::setRect(const Rect& rect, const ControlId& cid) {
 
 //******************************************************************************
     
-bool GUIDisplayEngine::addRow(const std::string& rowText, const ControlId& cid) {
+bool GUIDisplayEngine::addRow(const std::string& rowText,
+                              const ControlId& cid) {
    GUIDisplayEngineWindow* window = windowFromCid(cid);
    if (window != nullptr) {
       return window->addRow(rowText, cid);
@@ -540,7 +547,8 @@ bool GUIDisplayEngine::removeAllRows(const ControlId& cid) {
 
 //******************************************************************************
 
-bool GUIDisplayEngine::setStaticText(const std::string& text, const ControlId& cid) {
+bool GUIDisplayEngine::setStaticText(const std::string& text,
+                                     const ControlId& cid) {
    GUIDisplayEngineWindow* window = windowFromCid(cid);
    if (window != nullptr) {
       return window->setStaticText(text, cid);
@@ -551,7 +559,8 @@ bool GUIDisplayEngine::setStaticText(const std::string& text, const ControlId& c
 
 //******************************************************************************
     
-bool GUIDisplayEngine::setCheckBoxHandler(CheckBoxHandler* handler, const ControlId& cid) {
+bool GUIDisplayEngine::setCheckBoxHandler(CheckBoxHandler* handler,
+                                          const ControlId& cid) {
    GUIDisplayEngineWindow* window = windowFromCid(cid);
    if (window != nullptr) {
       return window->setCheckBoxHandler(handler, cid);
@@ -562,7 +571,8 @@ bool GUIDisplayEngine::setCheckBoxHandler(CheckBoxHandler* handler, const Contro
 
 //******************************************************************************
 
-bool GUIDisplayEngine::setComboBoxHandler(ComboBoxHandler* handler, const ControlId& cid) {
+bool GUIDisplayEngine::setComboBoxHandler(ComboBoxHandler* handler,
+                                          const ControlId& cid) {
    GUIDisplayEngineWindow* window = windowFromCid(cid);
    if (window != nullptr) {
       return window->setComboBoxHandler(handler, cid);
@@ -573,7 +583,8 @@ bool GUIDisplayEngine::setComboBoxHandler(ComboBoxHandler* handler, const Contro
 
 //******************************************************************************
 
-bool GUIDisplayEngine::setListBoxHandler(ListBoxHandler* handler, const ControlId& cid) {
+bool GUIDisplayEngine::setListBoxHandler(ListBoxHandler* handler,
+                                         const ControlId& cid) {
    GUIDisplayEngineWindow* window = windowFromCid(cid);
    if (window != nullptr) {
       return window->setListBoxHandler(handler, cid);
@@ -584,7 +595,8 @@ bool GUIDisplayEngine::setListBoxHandler(ListBoxHandler* handler, const ControlI
 
 //******************************************************************************
 
-bool GUIDisplayEngine::setListViewHandler(ListViewHandler* handler, const ControlId& cid) {
+bool GUIDisplayEngine::setListViewHandler(ListViewHandler* handler,
+                                          const ControlId& cid) {
    GUIDisplayEngineWindow* window = windowFromCid(cid);
    if (window != nullptr) {
       return window->setListViewHandler(handler, cid);
@@ -595,7 +607,8 @@ bool GUIDisplayEngine::setListViewHandler(ListViewHandler* handler, const Contro
 
 //******************************************************************************
 
-bool GUIDisplayEngine::setPushButtonHandler(PushButtonHandler* handler, const ControlId& cid) {
+bool GUIDisplayEngine::setPushButtonHandler(PushButtonHandler* handler,
+                                            const ControlId& cid) {
    GUIDisplayEngineWindow* window = windowFromCid(cid);
    if (window != nullptr) {
       return window->setPushButtonHandler(handler, cid);
@@ -606,7 +619,8 @@ bool GUIDisplayEngine::setPushButtonHandler(PushButtonHandler* handler, const Co
 
 //******************************************************************************
 
-bool GUIDisplayEngine::setSliderHandler(SliderHandler* handler, const ControlId& cid) {
+bool GUIDisplayEngine::setSliderHandler(SliderHandler* handler,
+                                        const ControlId& cid) {
    GUIDisplayEngineWindow* window = windowFromCid(cid);
    if (window != nullptr) {
       return window->setSliderHandler(handler, cid);
@@ -617,7 +631,8 @@ bool GUIDisplayEngine::setSliderHandler(SliderHandler* handler, const ControlId&
 
 //******************************************************************************
 
-bool GUIDisplayEngine::setTabViewHandler(TabViewHandler* handler, const ControlId& cid) {
+bool GUIDisplayEngine::setTabViewHandler(TabViewHandler* handler,
+                                         const ControlId& cid) {
    GUIDisplayEngineWindow* window = windowFromCid(cid);
    if (window != nullptr) {
       return window->setTabViewHandler(handler, cid);
