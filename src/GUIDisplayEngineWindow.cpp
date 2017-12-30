@@ -15,7 +15,7 @@ bool GUIDisplayEngineWindow::registerControl(ControlInfo* ci,
 //******************************************************************************
 
 DisplayEngineWidget* GUIDisplayEngineWindow::controlFromCid(const ControlId& cid) {
-   DisplayEngineWidget* widget = nullptr;
+   DisplayEngineWidget* widget = NULL;
    
    if (cid.controlId > -1) {
       auto it = m_mapIntToWidgets.find(cid.controlId);
@@ -43,7 +43,7 @@ bool GUIDisplayEngineWindow::showWindow() {
 
 bool GUIDisplayEngineWindow::setFocus(const ControlId& cid) {
    DisplayEngineWidget* control = controlFromCid(cid);
-   if (control != nullptr) {
+   if (control != NULL) {
       control->setFocus();
       return true;
    }
@@ -79,7 +79,7 @@ bool GUIDisplayEngineWindow::showGroup(const std::string& groupName) {
 
 bool GUIDisplayEngineWindow::setVisible(bool isVisible, const ControlId& cid) {
    DisplayEngineWidget* control = controlFromCid(cid);
-   if (control != nullptr) {
+   if (control != NULL) {
       control->setVisible(isVisible);
       return true;
    }
@@ -132,7 +132,7 @@ bool GUIDisplayEngineWindow::disableGroup(const std::string& groupName) {
 
 bool GUIDisplayEngineWindow::setEnabled(bool isEnabled, const ControlId& cid) {
    DisplayEngineWidget* control = controlFromCid(cid);
-   if (control != nullptr) {
+   if (control != NULL) {
       control->setEnabled(isEnabled);
       return true;
    }
@@ -162,7 +162,7 @@ bool GUIDisplayEngineWindow::setEnabled(bool isEnabled,
 bool GUIDisplayEngineWindow::setSize(const Size& controlSize,
                                      const ControlId& cid) {
    DisplayEngineWidget* control = controlFromCid(cid);
-   if (control != nullptr) {
+   if (control != NULL) {
       control->setSize(controlSize);
       return true;
    }
@@ -174,7 +174,7 @@ bool GUIDisplayEngineWindow::setSize(const Size& controlSize,
 
 bool GUIDisplayEngineWindow::setPos(const Point& point, const ControlId& cid) {
    DisplayEngineWidget* control = controlFromCid(cid);
-   if (control != nullptr) {
+   if (control != NULL) {
       control->setPos(point);
       return true;
    }
@@ -186,7 +186,7 @@ bool GUIDisplayEngineWindow::setPos(const Point& point, const ControlId& cid) {
 
 bool GUIDisplayEngineWindow::setRect(const Rect& rect, const ControlId& cid) {
    DisplayEngineWidget* control = controlFromCid(cid);
-   if (control != nullptr) {
+   if (control != NULL) {
       control->setRect(rect);
       return true;
    }
@@ -198,7 +198,7 @@ bool GUIDisplayEngineWindow::setRect(const Rect& rect, const ControlId& cid) {
 
 bool GUIDisplayEngineWindow::setCheckBoxHandler(CheckBoxHandler* handler,
                                                 const ControlId& cid) {
-   if (cid.isValid() && (handler != nullptr)) {
+   if (cid.isValid() && (handler != NULL)) {
       m_mapCheckBoxHandlers[cid.controlId] = handler;
       return true;
    }
@@ -210,7 +210,7 @@ bool GUIDisplayEngineWindow::setCheckBoxHandler(CheckBoxHandler* handler,
 
 bool GUIDisplayEngineWindow::setComboBoxHandler(ComboBoxHandler* handler,
                                                 const ControlId& cid) {
-   if (cid.isValid() && (handler != nullptr)) {
+   if (cid.isValid() && (handler != NULL)) {
       m_mapComboBoxHandlers[cid.controlId] = handler;
       return true;
    }
@@ -222,7 +222,7 @@ bool GUIDisplayEngineWindow::setComboBoxHandler(ComboBoxHandler* handler,
 
 bool GUIDisplayEngineWindow::setListBoxHandler(ListBoxHandler* handler,
                                                const ControlId& cid) {
-   if (cid.isValid() && (handler != nullptr)) {
+   if (cid.isValid() && (handler != NULL)) {
       m_mapListBoxHandlers[cid.controlId] = handler;
       return true;
    }
@@ -234,7 +234,7 @@ bool GUIDisplayEngineWindow::setListBoxHandler(ListBoxHandler* handler,
 
 bool GUIDisplayEngineWindow::setListViewHandler(ListViewHandler* handler,
                                                 const ControlId& cid) {
-   if (cid.isValid() && (handler != nullptr)) {
+   if (cid.isValid() && (handler != NULL)) {
       m_mapListViewHandlers[cid.controlId] = handler;
       return true;
    }
@@ -246,7 +246,7 @@ bool GUIDisplayEngineWindow::setListViewHandler(ListViewHandler* handler,
 
 bool GUIDisplayEngineWindow::setPushButtonHandler(PushButtonHandler* handler,
                                                   const ControlId& cid) {
-   if (cid.isValid() && (handler != nullptr)) {
+   if (cid.isValid() && (handler != NULL)) {
       m_mapPushButtonHandlers[cid.controlId] = handler;
       return true;
    }
@@ -258,7 +258,7 @@ bool GUIDisplayEngineWindow::setPushButtonHandler(PushButtonHandler* handler,
 
 bool GUIDisplayEngineWindow::setSliderHandler(SliderHandler* handler,
                                               const ControlId& cid) {
-   if (cid.isValid() && (handler != nullptr)) {
+   if (cid.isValid() && (handler != NULL)) {
       m_mapSliderHandlers[cid.controlId] = handler;
       return true;
    }
@@ -270,7 +270,7 @@ bool GUIDisplayEngineWindow::setSliderHandler(SliderHandler* handler,
 
 bool GUIDisplayEngineWindow::setTabViewHandler(TabViewHandler* handler,
                                                const ControlId& cid) {
-   if (cid.isValid() && (handler != nullptr)) {
+   if (cid.isValid() && (handler != NULL)) {
       m_mapTabViewHandlers[cid.controlId] = handler;
       return true;
    }
