@@ -41,18 +41,6 @@ namespace tataille
       {
       }
       
-      ControlInfo(ControlInfo&& move) :
-         cid(move.cid),
-         controlName(std::move(move.controlName)),
-         text(std::move(move.text)),
-         helpCaption(std::move(move.helpCaption)),
-         values(std::move(move.values)),
-         rect(move.rect),
-         isVisible(move.isVisible),
-         isEnabled(move.isEnabled)
-      {
-      }
-      
       ControlInfo& operator=(const ControlInfo& copy)
       {
          if (this == &copy) {
@@ -71,24 +59,6 @@ namespace tataille
          return *this;
       }
       
-      ControlInfo& operator=(ControlInfo&& move)
-      {
-         if (this == &move) {
-            return *this;
-         }
-
-         cid = move.cid;
-         controlName = std::move(move.controlName);
-         text = std::move(move.text);
-         helpCaption = std::move(move.helpCaption);
-         values = std::move(move.values);
-         rect = move.rect;
-         isVisible = move.isVisible;
-         isEnabled = move.isEnabled;
-         
-         return *this;
-      }
-
    };
 }
 
