@@ -1,7 +1,7 @@
 tataille
 ========
 
-Tataille is a GUI abstraction toolkit. The idea is that an graphical
+Tataille is a GUI abstraction toolkit. The idea is that a graphical
 desktop application can be built without being tied to a specific
 GUI toolkit implementation.
 
@@ -11,7 +11,9 @@ BSD
 
 Platforms/Tools
 ---------------
-This project is developed in C++ with the intent to be C++11 compliant.
+This project is developed in C++. The original intent was to be C++11
+compliant, however, it's been subsequently downgraded to C++98 for
+greater portability (fringe platforms).
 
 Meaning of Tataille
 -------------------
