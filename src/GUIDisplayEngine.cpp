@@ -39,7 +39,7 @@ const std::string& GUIDisplayEngine::getDisplayEngineVersion() const {
 
 //******************************************************************************
 
-tataille::GUIDisplayEngineWindow* GUIDisplayEngine::windowFromId(int windowId) {
+GUIDisplayEngineWindow* GUIDisplayEngine::windowFromId(int windowId) {
    auto it = m_mapIdToWindows.find(windowId);
    if (it != m_mapIdToWindows.end()) {
       return (*it).second;
