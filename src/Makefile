@@ -2,7 +2,7 @@
 # BSD License
 
 CC = clang++
-CC_OPTS = -c -std=c++11
+CC_OPTS = -c -Wall -std=c++98
 ARCHIVE_CMD = ar
 ARCHIVE_OPTS = rs
 
