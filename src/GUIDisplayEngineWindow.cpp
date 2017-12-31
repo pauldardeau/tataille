@@ -18,7 +18,8 @@ DisplayEngineWidget* GUIDisplayEngineWindow::controlFromCid(const ControlId& cid
    DisplayEngineWidget* widget = NULL;
    
    if (cid.controlId > -1) {
-      auto it = m_mapIntToWidgets.find(cid.controlId);
+      std::unordered_map<int, DisplayEngineWidget*>::iterator it =
+         m_mapIntToWidgets.find(cid.controlId);
       if (it != m_mapIntToWidgets.end()) {
          widget = (*it).second;
       }
@@ -91,10 +92,14 @@ bool GUIDisplayEngineWindow::setVisible(bool isVisible, const ControlId& cid) {
 
 bool GUIDisplayEngineWindow::setVisible(bool isVisible,
                                         const std::string& groupName) {
-   auto itGroupControls = m_mapGroupControls.find(groupName);
+   std::unordered_map<std::string, std::vector<ControlId> >::iterator itGroupControls = m_mapGroupControls.find(groupName);
    if (itGroupControls != m_mapGroupControls.end()) {
       std::vector<ControlId>& listControls = (*itGroupControls).second;
-      for (ControlId& cid : listControls) {
+      std::vector<ControlId>::iterator itControls = listControls.begin();
+      const std::vector<ControlId>::const_iterator itControlsEnd =
+         listControls.end();
+      for (; itControls != itControlsEnd; itControls++) {
+         ControlId& cid = *itControls;
          setVisible(isVisible, cid);
       }
       
@@ -144,10 +149,14 @@ bool GUIDisplayEngineWindow::setEnabled(bool isEnabled, const ControlId& cid) {
 
 bool GUIDisplayEngineWindow::setEnabled(bool isEnabled,
                                         const std::string& groupName) {
-   auto itGroupControls = m_mapGroupControls.find(groupName);
+   std::unordered_map<std::string, std::vector<ControlId> >::iterator itGroupControls = m_mapGroupControls.find(groupName);
    if (itGroupControls != m_mapGroupControls.end()) {
       std::vector<ControlId>& listControls = (*itGroupControls).second;
-      for (ControlId& cid : listControls) {
+      std::vector<ControlId>::iterator itControls = listControls.begin();
+      const std::vector<ControlId>::const_iterator itControlsEnd =
+         listControls.end();
+      for (; itControls != itControlsEnd; itControls++) {
+         ControlId& cid = *itControls;
          setEnabled(isEnabled, cid);
       }
       
