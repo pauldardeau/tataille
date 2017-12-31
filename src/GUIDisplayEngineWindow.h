@@ -31,7 +31,7 @@ namespace tataille
    class GUIDisplayEngineWindow : public DisplayEngineWindow
    {
    private:
-      std::unordered_map<std::string, std::vector<ControlId>> m_mapGroupControls;
+      std::unordered_map<std::string, std::vector<ControlId> > m_mapGroupControls;
       std::unordered_map<int, DisplayEngineWidget*> m_mapIntToWidgets;
       
       std::unordered_map<int, CheckBoxHandler*> m_mapCheckBoxHandlers;
