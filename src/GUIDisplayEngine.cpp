@@ -40,7 +40,7 @@ const std::string& GUIDisplayEngine::getDisplayEngineVersion() const {
 //******************************************************************************
 
 GUIDisplayEngineWindow* GUIDisplayEngine::windowFromId(int windowId) {
-   std::unordered_map<int, GUIDisplayEngineWindow*>::iterator it =
+   std::map<int, GUIDisplayEngineWindow*>::iterator it =
       m_mapIdToWindows.find(windowId);
    if (it != m_mapIdToWindows.end()) {
       return (*it).second;

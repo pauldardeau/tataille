@@ -5,7 +5,7 @@
 #define TATAILLE_GUIDISPLAYENGINE_H
 
 #include <string>
-#include <unordered_map>
+#include <map>
 
 #include "DisplayEngine.h"
 
@@ -31,7 +31,7 @@ namespace tataille
       static const std::string Language;
       static const std::string Version;
 
-      std::unordered_map<int, GUIDisplayEngineWindow*> m_mapIdToWindows;
+      std::map<int, GUIDisplayEngineWindow*> m_mapIdToWindows;
       
    public:
       virtual const std::string& getDisplayEngineName() const;

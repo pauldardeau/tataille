@@ -18,7 +18,7 @@ DisplayEngineWidget* GUIDisplayEngineWindow::controlFromCid(const ControlId& cid
    DisplayEngineWidget* widget = NULL;
    
    if (cid.controlId > -1) {
-      std::unordered_map<int, DisplayEngineWidget*>::iterator it =
+      std::map<int, DisplayEngineWidget*>::iterator it =
          m_mapIntToWidgets.find(cid.controlId);
       if (it != m_mapIntToWidgets.end()) {
          widget = (*it).second;
@@ -92,7 +92,7 @@ bool GUIDisplayEngineWindow::setVisible(bool isVisible, const ControlId& cid) {
 
 bool GUIDisplayEngineWindow::setVisible(bool isVisible,
                                         const std::string& groupName) {
-   std::unordered_map<std::string, std::vector<ControlId> >::iterator itGroupControls = m_mapGroupControls.find(groupName);
+   std::map<std::string, std::vector<ControlId> >::iterator itGroupControls = m_mapGroupControls.find(groupName);
    if (itGroupControls != m_mapGroupControls.end()) {
       std::vector<ControlId>& listControls = (*itGroupControls).second;
       std::vector<ControlId>::iterator itControls = listControls.begin();
@@ -149,7 +149,7 @@ bool GUIDisplayEngineWindow::setEnabled(bool isEnabled, const ControlId& cid) {
 
 bool GUIDisplayEngineWindow::setEnabled(bool isEnabled,
                                         const std::string& groupName) {
-   std::unordered_map<std::string, std::vector<ControlId> >::iterator itGroupControls = m_mapGroupControls.find(groupName);
+   std::map<std::string, std::vector<ControlId> >::iterator itGroupControls = m_mapGroupControls.find(groupName);
    if (itGroupControls != m_mapGroupControls.end()) {
       std::vector<ControlId>& listControls = (*itGroupControls).second;
       std::vector<ControlId>::iterator itControls = listControls.begin();

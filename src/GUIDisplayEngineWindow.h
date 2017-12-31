@@ -6,7 +6,7 @@
 
 #include <string>
 #include <vector>
-#include <unordered_map>
+#include <map>
 
 #include "DisplayEngineWindow.h"
 #include "DisplayEngineWidget.h"
@@ -31,16 +31,16 @@ namespace tataille
    class GUIDisplayEngineWindow : public DisplayEngineWindow
    {
    private:
-      std::unordered_map<std::string, std::vector<ControlId> > m_mapGroupControls;
-      std::unordered_map<int, DisplayEngineWidget*> m_mapIntToWidgets;
+      std::map<std::string, std::vector<ControlId> > m_mapGroupControls;
+      std::map<int, DisplayEngineWidget*> m_mapIntToWidgets;
       
-      std::unordered_map<int, CheckBoxHandler*> m_mapCheckBoxHandlers;
-      std::unordered_map<int, ComboBoxHandler*> m_mapComboBoxHandlers;
-      std::unordered_map<int, ListBoxHandler*> m_mapListBoxHandlers;
-      std::unordered_map<int, ListViewHandler*> m_mapListViewHandlers;
-      std::unordered_map<int, PushButtonHandler*> m_mapPushButtonHandlers;
-      std::unordered_map<int, SliderHandler*> m_mapSliderHandlers;
-      std::unordered_map<int, TabViewHandler*> m_mapTabViewHandlers;
+      std::map<int, CheckBoxHandler*> m_mapCheckBoxHandlers;
+      std::map<int, ComboBoxHandler*> m_mapComboBoxHandlers;
+      std::map<int, ListBoxHandler*> m_mapListBoxHandlers;
+      std::map<int, ListViewHandler*> m_mapListViewHandlers;
+      std::map<int, PushButtonHandler*> m_mapPushButtonHandlers;
+      std::map<int, SliderHandler*> m_mapSliderHandlers;
+      std::map<int, TabViewHandler*> m_mapTabViewHandlers;
       
    protected:
       bool registerControl(ControlInfo* ci, DisplayEngineWidget* widget);
