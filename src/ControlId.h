@@ -73,6 +73,24 @@ namespace tataille
          return ((windowId > -1) && (controlId > -1));
       }
 
+      bool operator==(const ControlId& compare) const
+      {
+         return windowId == compare.windowId &&
+                controlId == compare.controlId &&
+                parentId == compare.parentId;
+      }
+
+      bool operator<(const ControlId& compare) const
+      {
+         if (windowId < compare.windowId) {
+            return true;
+         } else if (windowId > compare.windowId) {
+            return false;
+         } else {
+            // matching window id
+            return controlId < compare.controlId;
+         }
+      }
    };
 }
 
