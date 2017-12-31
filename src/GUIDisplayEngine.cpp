@@ -644,3 +644,28 @@ bool GUIDisplayEngine::setTabViewHandler(TabViewHandler* handler,
 
 //******************************************************************************
 
+void GUIDisplayEngine::notifyOnButtonClick(const ControlId& cid) {
+}
+
+void GUIDisplayEngine::notifyOnComboBoxItemSelected(const ControlId& cid,
+                                        int index,
+                                        const std::string& text) {
+}
+
+void GUIDisplayEngine::notifyOnListBoxItemSelected(const ControlId&,
+                                       int index,
+                                       const std::string& text) {
+}
+
+void GUIDisplayEngine::notifyOnCheckBoxToggled(const ControlId& cid, bool isChecked) {
+}
+
+void GUIDisplayEngine::notifyOnNotebookPageSelected(const ControlId& cid, int pageIndex) {
+}
+
+void GUIDisplayEngine::notifyOnTableViewRowSelected(const ControlId& cid, int rowIndex) {
+}
+
+void GUIDisplayEngine::notifyOnTableViewRowChosen(const ControlId& cid, int rowIndex) {
+}
+

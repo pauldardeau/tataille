@@ -179,6 +179,18 @@ namespace tataille
       bool setPushButtonHandler(PushButtonHandler* handler, const ControlId& cid);
       bool setSliderHandler(SliderHandler* handler, const ControlId& cid);
       bool setTabViewHandler(TabViewHandler* handler, const ControlId& cid);
+
+      void notifyOnButtonClick(const ControlId& cid);
+      void notifyOnComboBoxItemSelected(const ControlId& cid,
+                                        int index,
+                                        const std::string& text);
+      void notifyOnListBoxItemSelected(const ControlId&,
+                                       int index,
+                                       const std::string& text);
+      void notifyOnCheckBoxToggled(const ControlId& cid, bool isChecked);
+      void notifyOnNotebookPageSelected(const ControlId& cid, int pageIndex);
+      void notifyOnTableViewRowSelected(const ControlId& cid, int rowIndex);
+      void notifyOnTableViewRowChosen(const ControlId& cid, int rowIndex);
    };
 }
 
