@@ -38,21 +38,21 @@ namespace tataille
       virtual bool setWindowTitle(int windowId, const std::string& windowTitle) = 0;
       virtual bool closeWindow(int windowId) = 0;
       
-      virtual bool createPushButton(const ControlInfo& ci) = 0;
-      virtual bool createStaticText(const ControlInfo& ci) = 0;
-      virtual bool createEntryField(const ControlInfo& ci) = 0;
-      virtual bool createTextView(const ControlInfo& ci) = 0;
-      virtual bool createComboBox(const ControlInfo& ci) = 0;
-      virtual bool createListBox(const ControlInfo& ci) = 0;
-      virtual bool createListView(const ControlInfo& ci) = 0;
-      virtual bool createTabView(const ControlInfo& ci) = 0;
-      virtual bool createPanel(const ControlInfo& ci) = 0;
-      virtual bool createGroupBox(const ControlInfo& ci) = 0;
-      virtual bool createSlider(const ControlInfo& ci) = 0;
-      virtual bool createCheckBox(const ControlInfo& ci) = 0;
-      virtual bool createTree(const ControlInfo& ci) = 0;
-      virtual bool createProgressBar(const ControlInfo& ci) = 0;
-      virtual bool createImageView(const ControlInfo& ci) = 0;
+      virtual bool createPushButton(ControlInfo* ci) = 0;
+      virtual bool createStaticText(ControlInfo* ci) = 0;
+      virtual bool createEntryField(ControlInfo* ci) = 0;
+      virtual bool createTextView(ControlInfo* ci) = 0;
+      virtual bool createComboBox(ControlInfo* ci) = 0;
+      virtual bool createListBox(ControlInfo* ci) = 0;
+      virtual bool createListView(ControlInfo* ci) = 0;
+      virtual bool createTabView(ControlInfo* ci) = 0;
+      virtual bool createPanel(ControlInfo* ci) = 0;
+      virtual bool createGroupBox(ControlInfo* ci) = 0;
+      virtual bool createSlider(ControlInfo* ci) = 0;
+      virtual bool createCheckBox(ControlInfo* ci) = 0;
+      virtual bool createTree(ControlInfo* ci) = 0;
+      virtual bool createProgressBar(ControlInfo* ci) = 0;
+      virtual bool createImageView(ControlInfo* ci) = 0;
       
       virtual bool hideControl(const ControlId& cid) = 0;
       virtual bool showControl(const ControlId& cid) = 0;
