@@ -1,7 +1,7 @@
 # Copyright Paul Dardeau, SwampBits LLC 2014
 # BSD License
 
-CC = clang++
+CC = c++
 CC_OPTS = -c -Wall -std=c++98
 ARCHIVE_CMD = ar
 ARCHIVE_OPTS = rs
